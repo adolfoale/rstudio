@@ -95,7 +95,7 @@ RUN wget -O /opt/rstudio.tar.gz https://download1.rstudio.org/desktop/bionic/amd
 RUN wget -O /opt/R.tar.gz https://cran.r-project.org/src/base/R-4/R-$R_VERSION.tar.gz
 RUN tar -xf /opt/rstudio.tar.gz -C /opt/r-studio
 RUN tar -xf /opt/R.tar.gz -C /opt/r-lang    
-RUN apt-get update && cd /opt/r-studio/resources/dependencies/ 
+RUN apt-get update && cd /opt/r-studio/resources/dependencies/ && ./install-dependencies-debian --exclude-qt-sdk
 RUN apt-get install -y gfortran libreadline-dev libxt-dev liblzma-dev openjdk-8-jdk &&  update-java-alternatives -s java-1.8.0-openjdk-amd64 &&  cd /opt/r-lang/*/ &&  ln -s /lib/x86_64-linux-gnu/libreadline.so.7 /lib/x86_64-linux-gnu/libreadline.so.8
 RUN LDFLAGS='-L/opt/conda/lib -licui18n -licuuc -licudata' ./configure --enable-R-shlib=yes --with-blas --with-lapack
 RUN make

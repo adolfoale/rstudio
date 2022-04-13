@@ -122,14 +122,6 @@ COPY jupyter_notebook_config.py /etc/jupyter/
 
 USER root
 
-RUN fix-permissions /etc/jupyter/
-
-USER 1000
-
-LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
-
-USER root
-
 RUN apt-get update && \
     apt-get install -yq --no-install-recommends build-essential \
       emacs \

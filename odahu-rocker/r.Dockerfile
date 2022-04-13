@@ -1,4 +1,4 @@
-FROM odahu:jupyter-base
+FROM adolfoale/rstudio:jupyter-base
 
 USER 0
 
