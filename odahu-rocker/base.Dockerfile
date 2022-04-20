@@ -105,7 +105,8 @@ RUN conda install --quiet --yes 'tini=0.18.0' && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
 
-RUN conda install --quiet --yes 'notebook=6.0.3' 'jupyterhub=1.1.0' 'jupyterlab=1.2.5' && \
+RUN conda install --quiet --yes 'notebook=6.0.3' 'jupyterhub=1.1.0' 'jupyterlab=3.2.1' && \
+    conda install jupyter-server-proxy -c conda-forge && \
     conda clean --all -f -y && \
     npm cache clean --force && \
     jupyter notebook --generate-config && \

@@ -1,22 +1,16 @@
 FROM adolfoale/rstudio:r-base
 
-ENV RSTUDIO_VERSION=1.4.1717
+#ENV RSTUDIO_VERSION=2022.02.1+461
 
 USER 0
 
 RUN apt update && apt install -y git wget
 
-# install libssl1.0-dev
-#RUN echo "deb http://security.ubuntu.com/ubuntu bionic-security main" >> /etc/apt/sources.list.d/libssl1.0-dev.list && \
-#    apt update && apt-cache policy libssl1.0-dev && \
-#    apt-get install -y libssl1.0-dev && \
-#    rm /etc/apt/sources.list.d/libssl1.0-dev.list
-
-RUN cd /opt && git clone https://github.com/rstudio/rstudio.git && \
-    cd rstudio && git checkout tags/v$RSTUDIO_VERSION
+RUN cd /opt && git clone https://github.com/rstudio/rstudio.git
+#    cd rstudio && git checkout tags/v$RSTUDIO_VERSION
 
 RUN cd /opt/rstudio/dependencies/linux/ && \
-    ./install-dependencies-debian --exclude-qt-sdk
+    ./install-dependencies-focal --exclude-qt-sdk
 
 RUN mkdir /opt/rstudio/build && \
     cd /opt/rstudio/build && \
