@@ -1,0 +1,3 @@
+# Enabled for Google Cloud SDK and gce-utils
+#deb http://archive.canonical.com/ubuntu focal partner
+deb https://nrm.us.equifax.com/repository/canonical-ubuntu-apt-proxy focal partner

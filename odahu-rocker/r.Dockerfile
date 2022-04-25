@@ -2,6 +2,9 @@ FROM adolfoale/rstudio:jupyter-base
 
 USER 0
 
+RUN rm -f /etc/apt/sources.list.d/partner.list
+COPY sources.list /etc/apt/sources.list 
+
 ENV R_VERSION=4.1.3
 ENV TERM=xterm
 ENV R_HOME=/usr/local/lib/R
@@ -32,7 +35,7 @@ RUN R CMD javareconf && \
     ln -sf /usr/lib/x86_64-linux-gnu/libicui18n.so.64.2 /usr/lib/x86_64-linux-gnu/libicui18n.so.64 && \
     ln -sf /usr/lib/x86_64-linux-gnu/libicui18n.so.64.2 /usr/lib/x86_64-linux-gnu/libicui18n.so
 
-#RUN Rscript /opt/install.R --save
+RUN Rscript /opt/install.R --save
 RUN chown -R efx_container_user /usr/local/lib/R/ && \
     Rscript -e "installed.packages()" > /opt/installed.packages.txt && \
     cat /opt/installed.packages.txt

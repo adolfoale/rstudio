@@ -15,7 +15,7 @@ install.packages(
         'rstan', 'rstudioapi', 'rzmq', 'scales', 'shinystan', 'sourcetools', 'sparklyr', 'SparseM', 'spatial',
         'splines', 'stargazer', 'stats', 'stats4', 'stringi', 'stringr', 'survival', 'tibble', 'tidypredict',
         'tidyr', 'tidyverse', 'tmg', 'tools', 'treemap', 'tsseries', 'TTR', 'utils', 'uuid', 'whisker', 'withr',
-        'xlsx', 'xlsxjars', 'xtable', 'xts', 'yaml', 'zoo'
+        'xlsx', 'xlsxjars', 'xtable', 'xts', 'yaml', 'zoo', 'Hmisc'
 
     ),
     repos = 'https://cran.r-project.org'

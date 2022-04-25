@@ -31,4 +31,11 @@ RUN cp /usr/local/lib/R/lib/*.so /usr/lib && \
     mkdir -p /etc/rstudio && \
     touch /etc/rstudio/repos.conf
 
+# install aditional R packages
+RUN Rscript -e 'install.packages("Hmisc", repos="https://packagemanager.rstudio.com/cran/__linux__/focal/latest/")'
+
+COPY nexus.sources.list /etc/apt/sources.list
+COPY partner.list /etc/apt/sources.list.d/
+RUN rm -f /etc/apt/sources.list.d/openjdk-r-ubuntu-ppa-focal.list 
+
 USER 1000
